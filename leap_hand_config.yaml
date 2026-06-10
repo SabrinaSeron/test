@@ -1,0 +1,33 @@
+task: leap_hand
+use_domain_randomization: false
+num_envs: 8192
+action_scale: 0.6
+action_ema_alpha: 0.6
+grasp_cache_path: "new_hand.npy"
+
+# wrench disturbance
+wrench_force_scale: 0.0
+wrench_torque_scale: 0.0
+wrench_ramp_alpha: 0.8
+wrench_push_steps: [20, 80]
+wrench_rest_steps: [10, 50]
+
+# reward scales existants (Eduardo)
+reward_scale: 0.01
+alive_bonus: 2.0
+wrench_resistance_scale: 1.0
+slip_vel_scale: 0.1
+torque_scale: 0.0001
+action_rate_scale: 0.01
+
+# reward tactile — NOUVEAU
+# contact_bonus_scale : bonus par doigt supplementaire en contact (a partir de 2)
+# pressure_bonus_scale : bonus par doigt en contact avec pression dans [P_LOW, P_HIGH]
+# palm_bonus_scale : bonus doux pour contact paume
+# low_pressure_scale : penalite par doigt en contact mais pression trop faible
+# high_pressure_scale : penalite proportionnelle a l exces au dessus de P_HIGH
+contact_bonus_scale: 1.0
+pressure_bonus_scale: 0.5
+palm_bonus_scale: 0.3
+low_pressure_scale: 0.5
+high_pressure_scale: 0.2
